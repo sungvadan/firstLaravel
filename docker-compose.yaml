@@ -1,0 +1,43 @@
+version: '3.4'
+
+services:
+    nginx:
+        build:
+            context: ./docker/nginx
+        ports:
+            - "80:80"
+        volumes:
+            - ./docker/nginx/conf.d:/etc/nginx/conf.d
+            - ./:/var/www
+        links:
+            - php
+    postgres:
+        image: postgres:10.6
+        ports:
+            - "5432:5432"
+        environment:
+            POSTGRES_PASSWORD: root
+            POSTGRES_USER: root
+            POSTGRES_DB: test
+        volumes:
+            - ./.data:/var/lib/postgresql/data
+    mysql:
+        image: 'mysql:5.7'
+        environment:
+            - MYSQL_DATABASE=mercure_workshop
+            - MYSQL_USER=mercure_workshop
+            - MYSQL_PASSWORD=mercure_workshop
+            - MYSQL_ROOT_PASSWORD=mercure_workshop
+        volumes:
+            - ./.data_mysql:/var/lib/mysql
+    php:
+        build:
+            context: ./docker/php
+        expose:
+            - "9000"
+        volumes:
+            - ./:/var/www:cached
+            - ~/.ssh:/root/.ssh
+        links:
+            - postgres
+            - mysql
