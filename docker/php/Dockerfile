@@ -39,7 +39,7 @@ RUN docker-php-ext-configure zip --with-libzip \
         && docker-php-ext-install pdo_mysql \
         && docker-php-ext-enable xdebug
 
-
+RUN chmod -R 777 /usr/share/
 
 USER foo
 
