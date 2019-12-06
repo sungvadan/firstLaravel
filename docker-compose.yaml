@@ -24,10 +24,10 @@ services:
     mysql:
         image: 'mysql:5.7'
         environment:
-            - MYSQL_DATABASE=mercure_workshop
-            - MYSQL_USER=mercure_workshop
-            - MYSQL_PASSWORD=mercure_workshop
-            - MYSQL_ROOT_PASSWORD=mercure_workshop
+            - MYSQL_DATABASE=laravel
+            - MYSQL_USER=root
+            - MYSQL_PASSWORD=root
+            - MYSQL_ROOT_PASSWORD=root
         volumes:
             - ./.data_mysql:/var/lib/mysql
     php:
