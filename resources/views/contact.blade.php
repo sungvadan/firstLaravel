@@ -1,5 +1,5 @@
 @extends('layout')
 
-@section('content')
+@section('container')
     <h1>Contact</h1>
 @endsection

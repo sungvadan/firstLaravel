@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('content')
+@section('container')
     <form method="POST" action="/projects">
         {{ csrf_field() }}
         <div>

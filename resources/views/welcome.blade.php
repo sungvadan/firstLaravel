@@ -2,7 +2,7 @@
 
 @section('title', ' Home page')
 
-@section('content')
+@section('container')
     <h1>My {!! $foo !!} website</h1>
 
     <ul>
