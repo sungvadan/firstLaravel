@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Services\Twitter;
 use Illuminate\Support\ServiceProvider;
 
 class SocialServiceProvider extends ServiceProvider
@@ -13,8 +14,8 @@ class SocialServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind('foo', function() {
-            return 'bar';
+        $this->app->singleton(Twitter::class, function() {
+            return new Twitter(config('laracast.stripe.private'));
         });
     }
 

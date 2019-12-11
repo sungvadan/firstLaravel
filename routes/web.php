@@ -11,8 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    dd(app('foo'));
+Route::get('/', function (\App\Services\Twitter $twitter) {
+    dd($twitter);
 });
 
 Route::get('/about', 'PagesController@about');
