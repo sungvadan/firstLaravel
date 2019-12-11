@@ -11,7 +11,9 @@
 |
 */
 
-Route::get('/', 'PagesController@home');
+Route::get('/', function () {
+    dd(app('foo'));
+});
 
 Route::get('/about', 'PagesController@about');
 
