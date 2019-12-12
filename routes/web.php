@@ -11,8 +11,8 @@
 |
 */
 
-Route::get('/', function (\App\Services\Twitter $twitter) {
-    dd($twitter);
+Route::get('/', function () {
+    return view('welcome');
 });
 
 Route::get('/about', 'PagesController@about');
@@ -43,3 +43,7 @@ Route::resource('projects', 'ProjectsController');
 Route::post('/projects/{project}/tasks', 'ProjectTasksController@store');
 Route::patch('/tasks/{task}', 'ProjectTasksController@update');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
